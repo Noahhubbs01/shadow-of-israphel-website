@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24251d">
+  <meta name="description" content="An independent fan recreation of Shadow of Israphel. Return to the world you remember in a playable Minecraft adventure. Currently in private development.">
+  <link rel="canonical" href="https://shadowofisraphelproject.online/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shadow of Israphel — The adventure lives on.">
+  <meta property="og:description" content="Return to the world you remember. Explore the development trailer and screenshots of an independent Minecraft fan adventure.">
+  <meta property="og:url" content="https://shadowofisraphelproject.online/">
+  <meta property="og:image" content="https://shadowofisraphelproject.online/assets/media/01-mistral-overlook.webp">
+  <title>Shadow of Israphel — The adventure lives on.</title>
+  <link rel="icon" href="assets/textures/diamond_pickaxe.png" type="image/png">
+  <link rel="preload" href="assets/soi-adventure.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="media.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body id="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="wordmark" href="#home" aria-label="Shadow of Israphel home">
+        <span class="wordmark-top">SHADOW OF</span>
+        <span class="wordmark-main">ISRAPHEL</span>
+        <span class="wordmark-sub">A MINECRAFT FAN ADVENTURE</span>
+      </a>
+      <span class="splash" aria-hidden="true">The adventure lives on!</span>
+      <div class="header-note"><span class="status-dot"></span> A world in the making.<br><span>One developer. A whole lot of blocks.</span></div>
+    </header>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home" class="is-active" aria-current="location">Home</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#updates">Development</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <span class="nav-edition">EST. IN NOSTALGIA</span>
+    </nav>
+    <div class="grass-edge" aria-hidden="true"></div>
+
+    <main id="main" tabindex="-1">
+      <h1 class="sr-only">Shadow of Israphel — the adventure lives on.</h1>
+      <div class="welcome-line"><span>Welcome back, adventurer.</span><span class="release-note"><span class="status-dot"></span> IN PRIVATE DEVELOPMENT</span></div>
+      <section class="hero" aria-label="Shadow of Israphel adventure">
+        <div class="trailer-block" id="trailer">
+          <div class="trailer-frame">
+            <div class="trailer-poster" id="trailer-poster">
+              <div class="poster-scene" aria-hidden="true"></div>
+              <div class="poster-vignette" aria-hidden="true"></div>
+              <div class="poster-copy">
+                <p class="eyebrow">A FAMILIAR WORLD. A NEW WAY TO EXPERIENCE IT.</p>
+                <h2 class="poster-title">The adventure<br><span>lives on.</span></h2>
+                <div class="poster-rule" aria-hidden="true"><i></i><span>◆</span><i></i></div>
+                <p class="poster-description">You watched the story.<br>Now imagine stepping into it.</p>
+              </div>
+              <div class="trailer-soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v16H3zM3 8h18M7 4v4m5-4v4m5-4v4"/><path class="play-shape" d="m10 11 5 3-5 3z"/></svg><span>TRAILER COMING SOON</span></div>
+            </div>
+            <div id="trailer-player" hidden></div>
+          </div>
+          <p class="media-caption"><span class="tiny-diamond" aria-hidden="true">◆</span> <span id="trailer-caption">A new look at an old adventure. Gameplay footage is on its way.</span></p>
+        </div>
+
+        <aside class="adventure-card" aria-label="Development status">
+          <p class="eyebrow">SOME OLD FRIENDS ARE WAITING.</p>
+          <div class="companions" role="img" aria-label="Honeydew and Xephos, wearing their character skins from the project">
+            <div class="character honeydew" aria-hidden="true"><i class="character-shadow"></i><i class="skin-part head"></i><i class="skin-part head-side"></i><i class="skin-part body"></i><i class="skin-part arm arm-left"></i><i class="skin-part arm arm-right"></i><i class="skin-part leg leg-left"></i><i class="skin-part leg leg-right"></i><img class="held-item pickaxe" src="assets/textures/diamond_pickaxe.png" alt="" width="32" height="32"></div>
+            <div class="character xephos" aria-hidden="true"><i class="character-shadow"></i><i class="skin-part head"></i><i class="skin-part head-side"></i><i class="skin-part body"></i><i class="skin-part arm arm-left"></i><i class="skin-part arm arm-right"></i><i class="skin-part leg leg-left"></i><i class="skin-part leg leg-right"></i><img class="held-item sword" src="assets/textures/iron_sword.png" alt="" width="32" height="32"></div>
+            <div class="companion-ground" aria-hidden="true"></div>
+          </div>
+          <a class="minecraft-button green-button" href="#updates">IN DEVELOPMENT <span aria-hidden="true">›</span></a>
+          <p class="availability">Good things take a little crafting.</p>
+          <p class="availability-small">No download yet. No release date announced.</p>
+        </aside>
+      </section>
+
+      <section class="introduction" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow gold-text">REMEMBER WHERE IT ALL BEGAN?</p>
+          <h2 id="intro-title">Some adventures stay with you.</h2>
+          <p>The first shelter. The familiar faces. The feeling that something much bigger was waiting just over the next hill. <strong>Shadow of Israphel</strong> was more than a series to grow up with. It was a world you wanted to be part of.</p>
+          <p>This independent fan project is rebuilding that world as a playable Minecraft adventure. Familiar places, the original story, and Honeydew and Xephos by your side. One block at a time.</p>
+          <a class="text-link" href="#about">Meet the person behind the project <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="quest-note">
+          <div class="quest-heading"><img src="assets/textures/book.png" alt="" width="32" height="32"><span>THE QUEST</span></div>
+          <ul class="quest-list">
+            <li><span>01</span><div><strong>Rediscover the world</strong><p>Familiar places. That old sense of wonder.</p></div></li>
+            <li><span>02</span><div><strong>Step into the story</strong><p>An adventure with the characters you remember.</p></div></li>
+            <li><span>03</span><div><strong>Take the scenic route</strong><p>Exploration and side stories are part of the plan.</p></div></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="screenshots-section" id="screenshots" aria-labelledby="screenshots-title">
+        <div class="section-heading"><h2 id="screenshots-title"><img src="assets/textures/map.png" alt="" width="28" height="28">From the world</h2><span class="section-meta" id="gallery-status">SCREENSHOTS COMING SOON</span></div>
+        <p class="section-intro" id="gallery-intro">A little mystery for now. The first in-game captures will appear here when they're ready.</p>
+        <div class="screenshot-grid" id="screenshot-grid">
+          <figure class="screenshot-placeholder"><div class="empty-capture capture-world"><img src="assets/textures/map.png" alt="" width="48" height="48"><span>UNEXPLORED</span><i class="capture-corner" aria-hidden="true"></i></div><figcaption><span>01</span> A world worth returning to <small>Coming soon</small></figcaption></figure>
+          <figure class="screenshot-placeholder"><div class="empty-capture capture-story"><img src="assets/textures/book.png" alt="" width="48" height="48"><span>UNTOLD</span><i class="capture-corner" aria-hidden="true"></i></div><figcaption><span>02</span> A story to step inside <small>Coming soon</small></figcaption></figure>
+          <figure class="screenshot-placeholder"><div class="empty-capture capture-adventure"><img src="assets/textures/diamond_pickaxe.png" alt="" width="48" height="48"><span>UNFORGOTTEN</span><i class="capture-corner" aria-hidden="true"></i></div><figcaption><span>03</span> An adventure of your own <small>Coming soon</small></figcaption></figure>
+        </div>
+      </section>
+
+      <div class="lower-grid">
+        <div>
+          <section id="updates" aria-labelledby="updates-title">
+            <div class="section-heading"><h2 id="updates-title"><img src="assets/textures/diamond_pickaxe.png" alt="" width="28" height="28">At the crafting table</h2><span class="section-meta">DEVELOPMENT JOURNAL</span></div>
+            <article class="journal-entry">
+              <div class="journal-meta"><time datetime="2026-11">NOVEMBER 2026</time><span class="small-tag">IN PROGRESS</span></div>
+              <h3>Bringing the world back to life</h3>
+              <p>The adventure is taking shape in private development. Work continues on the story, companions, and the little interactions that make its world feel lived in.</p>
+              <p>The first development trailer and six in-game screenshots are now here. Take a look around Mistral, revisit the Yogcave, and meet a few familiar faces.</p>
+            </article>
+            <article class="journal-entry earlier-entry">
+              <div class="journal-meta"><time datetime="2026-10">OCTOBER 2026</time><span>FROM THE ARCHIVE</span></div>
+              <h3>Every adventure starts somewhere</h3>
+              <p>The 42-episode historical archive has been indexed. Scene-by-scene story reconstruction and gameplay refinement are underway.</p>
+            </article>
+          </section>
+          <section id="about" class="developer-note" aria-labelledby="about-title">
+            <img class="note-feather" src="assets/textures/feather.png" alt="" width="38" height="38">
+            <p class="eyebrow">A NOTE FROM THE DEVELOPER</p>
+            <h2 id="about-title">Built with a lot of heart.</h2>
+            <p>I'm a solo developer, serving full-time in the U.S. Army and raising a family. In the spare hours in between, I'm rebuilding a little piece of the world I grew up with.</p>
+            <p>This is a passion project, not a business. It'll take time, and I won't promise a date I can't confidently deliver. Thanks for being here while it takes shape.</p>
+            <span class="note-signoff">See you on the other side of the blocks.</span>
+          </section>
+        </div>
+
+        <section id="faq" class="faq-section" aria-labelledby="faq-title">
+          <div class="section-heading"><h2 id="faq-title">Before you set off</h2></div>
+          <p class="section-intro">A few things you might be wondering.</p>
+          <details open><summary>Is this an official project?</summary><p>No. This is an independent fan recreation, not affiliated with or endorsed by The Yogscast, Mojang Studios, or Microsoft.</p></details>
+          <details><summary>Can I play it yet?</summary><p>Not yet. The project is in private development. There is no public download or announced release date.</p></details>
+          <details><summary>Will it be free?</summary><p>The intention is to release it for free. I'm not accepting donations. Any eventual release will depend on readiness and the appropriate permissions.</p></details>
+          <details><summary>Where can I see gameplay?</summary><p>Watch the <a href="#trailer">development trailer</a> at the top of this page, or explore the <a href="#screenshots">screenshot gallery</a>. Everything shown is from the adventure in development.</p></details>
+          <details><summary>What kind of adventure is it?</summary><p>A playable recreation of the Shadow of Israphel world and story in Minecraft. The main quest comes first, with optional exploration and side activities planned along the way.</p></details>
+          <div class="inventory-note"><img src="assets/textures/grass_block_side.png" alt="" width="32" height="32"><p>Old-school spirit.<br><strong>A new adventure ahead.</strong></p></div>
+        </section>
+      </div>
+      <div class="bottom-message"><span aria-hidden="true">✦</span> Thanks for keeping the adventure alive. <a href="#home">Back to the surface ↑</a></div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-wordmark">SHADOW OF ISRAPHEL</span>
+      <p>An independent fan project. Made with nostalgia, patience, and far too many blocks.</p>
+      <p class="legal">Not affiliated with The Yogscast, Mojang Studios, or Microsoft.<br>Third-party characters, artwork, music, and trademarks belong to their respective owners.</p>
+    </footer>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot viewer">
+    <div class="lightbox-toolbar"><p id="lightbox-count"></p><button class="minecraft-button" id="lightbox-close" type="button" autofocus>Close <span aria-hidden="true">×</span></button></div>
+    <img id="lightbox-image" alt="">
+    <div class="lightbox-bottom"><button class="minecraft-button" id="lightbox-prev" type="button" aria-label="Previous screenshot">←</button><p id="lightbox-caption" aria-live="polite"></p><button class="minecraft-button" id="lightbox-next" type="button" aria-label="Next screenshot">→</button></div>
+  </dialog>
+</body>
+</html>
