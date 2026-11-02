@@ -69,7 +69,7 @@
       video.focus({ preventScroll: true });
       video.play().catch(() => { /* Native controls remain available if playback needs another gesture. */ });
     });
-    document.querySelector('#trailer-caption').textContent = trailer.caption || 'Step inside the adventure. Watch the gameplay trailer.';
+    document.querySelector('#trailer-caption').textContent = trailer.caption || 'Gameplay trailer';
   }
 
   const screenshots = (Array.isArray(media.screenshots) ? media.screenshots : []).filter(shot => shot && shot.src);
@@ -140,6 +140,6 @@
     figure.append(button, label);
     grid.append(figure);
   });
-  document.querySelector('#gallery-status').textContent = `${screenshots.length} VIEWS FROM THE ADVENTURE`;
-  document.querySelector('#gallery-intro').textContent = 'A glimpse of the world taking shape. Select a screenshot to take a closer look.';
+  document.querySelector('#gallery-status').textContent = `${screenshots.length} IN-GAME CAPTURES`;
+  document.querySelector('#gallery-intro').textContent = 'Select a screenshot for a closer look.';
 })();
