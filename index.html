@@ -3,102 +3,156 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#24251d">
-  <meta name="description" content="A playable Minecraft fan adventure based on Shadow of Israphel. Watch the gameplay trailer, explore screenshots, and follow development.">
+  <meta name="theme-color" content="#282720">
+  <meta name="description" content="An independent, unofficial Shadow of Israphel fan recreation. Watch real gameplay, explore screenshots, and follow this solo Minecraft passion project.">
   <link rel="canonical" href="https://shadowofisraphelproject.online/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Shadow of Israphel — A Minecraft fan adventure">
-  <meta property="og:description" content="Honeydew, Xephos, and a return to the Yogcave. Gameplay and development updates from the fan project.">
+  <meta property="og:description" content="An independent, unofficial Shadow of Israphel fan recreation. Watch real gameplay, explore screenshots, and follow this solo Minecraft passion project.">
   <meta property="og:url" content="https://shadowofisraphelproject.online/">
   <meta property="og:image" content="https://shadowofisraphelproject.online/assets/media/01-mistral-overlook.webp">
+  <meta property="og:image:alt" content="Mistral's towers and airships in the private Minecraft fan adventure.">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Shadow of Israphel — A Minecraft fan adventure</title>
-  <link rel="icon" href="assets/textures/diamond_pickaxe.png" type="image/png">
-  <link rel="preload" href="assets/soi-adventure.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
-  <script src="media.js" defer></script>
-  <script src="app.js" defer></script>
+  <link rel="icon" href="/assets/textures/diamond_pickaxe.png" type="image/png">
+  <link rel="preload" href="/assets/soi-adventure.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/rss+xml" title="Shadow of Israphel development blog" href="/feed.xml">
+  <script src="/app.js" defer></script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="9637009f-7e4f-4f15-a06f-9648235f7372" data-domains="shadowofisraphelproject.online,www.shadowofisraphelproject.online" data-exclude-hash="true" data-do-not-track="true"></script>
+
 </head>
 <body id="home">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="masthead">
-      <a class="wordmark" href="#home" aria-label="Shadow of Israphel home">
+      <a class="wordmark" href="/" aria-label="Shadow of Israphel home">
         <span class="wordmark-top">SHADOW OF</span>
         <span class="wordmark-main">ISRAPHEL</span>
         <span class="wordmark-sub">A MINECRAFT FAN ADVENTURE</span>
       </a>
-      <span class="splash" aria-hidden="true">Ye be dwarfin' it up!</span>
-      <p class="header-note">Minecraft Java Edition<br><span>Forge · 1.20.1</span></p>
+      <p class="header-note">An independent fan recreation<br><span>Minecraft Java Edition · Forge 1.20.1</span></p>
     </header>
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="#home" class="is-active" aria-current="location">Home</a>
-      <a href="#screenshots">Screenshots</a>
-      <a href="#updates">Progress</a>
-      <a href="#about">About</a>
+      <a href="/" aria-current="page">Home</a>
+      <a href="/#trailer">Trailer</a>
+      <a href="/#screenshots">Screenshots</a>
+      <a href="/blog/" >Development blog</a>
+      <a href="/#about">About</a>
     </nav>
     <div class="grass-edge" aria-hidden="true"></div>
-    <main id="main" tabindex="-1">
-      <h1 class="sr-only">Shadow of Israphel — A Minecraft fan adventure</h1>
-      <section class="hero" aria-label="Gameplay trailer and project links">
-        <div class="trailer-block" id="trailer">
-          <div class="trailer-frame">
-            <div class="trailer-poster" id="trailer-poster">
-              <div class="poster-scene" aria-hidden="true"></div>
-              <div class="poster-vignette" aria-hidden="true"></div>
-              <div class="poster-copy"><h2 class="poster-title">First gameplay trailer</h2></div>
-              <div class="trailer-soon"><span>WATCH THE TRAILER</span></div>
-            </div>
-            <div id="trailer-player" hidden></div>
-          </div>
-          <p class="media-caption"><span id="trailer-caption">Gameplay from the private build · 1:48</span><a href="https://youtu.be/99c3DlrMxWU" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></p>
-        </div>
-        <aside class="adventure-card" aria-label="Follow the project">
-          <figure class="companions">
-            <img src="assets/companions-render.png" alt="Honeydew in his dwarf skin holding a diamond pickaxe, beside Xephos in his original red uniform holding an iron sword." width="1200" height="1000">
-            <figcaption>Honeydew &amp; Xephos</figcaption>
-          </figure>
-          <a class="minecraft-button green-button" href="https://www.youtube.com/@ShadowofIsraphelFanProject" target="_blank" rel="noopener noreferrer">Follow on YouTube <span aria-hidden="true">↗</span></a>
-          <a class="discussion-link" href="https://www.reddit.com/r/Yogscast/comments/1xlg74g/shadow_of_israphel_fan_adventure_first_gameplay/" target="_blank" rel="noopener noreferrer">Join the Reddit discussion ↗</a>
-        </aside>
-      </section>
-      <section class="introduction" aria-labelledby="intro-title">
-        <h2 id="intro-title">Back to the Yogcave.</h2>
-        <p>A Minecraft adventure based on the original Yogscast series. Travel with Honeydew and Xephos, follow the story, and explore the places you remember.</p>
-      </section>
-      <section class="screenshots-section" id="screenshots" aria-labelledby="screenshots-title">
-        <div class="section-heading"><h2 id="screenshots-title"><img src="assets/textures/map.png" alt="" width="28" height="28">Screenshots</h2><span class="section-meta" id="gallery-status">IN-GAME CAPTURES</span></div>
-        <p class="section-intro" id="gallery-intro">Select a screenshot for a closer look.</p>
-        <div class="screenshot-grid" id="screenshot-grid"></div>
-        <noscript><p>Enable JavaScript to open the screenshot gallery and trailer player. You can also <a href="https://youtu.be/99c3DlrMxWU">watch the trailer on YouTube</a>.</p></noscript>
-      </section>
-      <div class="lower-grid">
-        <section id="updates" aria-labelledby="updates-title">
-          <div class="section-heading"><h2 id="updates-title"><img src="assets/textures/diamond_pickaxe.png" alt="" width="28" height="28">Where it stands</h2></div>
-          <article class="journal-entry">
-            <p class="journal-meta"><time datetime="2026-11-01">1 NOVEMBER 2026</time><span class="small-tag">PRIVATE BUILD</span></p>
-            <p>The opening and Episodes 1–2 are playable, followed by exploration around Mistral. Companions, story scenes, conversations, optional errands, and shops are working in the current build.</p>
-            <p>The later episodes still need to be built. There’s no public download or release date yet.</p>
-          </article>
-        </section>
-        <section id="about" class="developer-note" aria-labelledby="about-title">
-          <h2 id="about-title">About the project</h2>
-          <p>I’m making this in my spare time around full-time Army service and family life. Shadow of Israphel was a big part of growing up for me, and I wanted to revisit it as something you could play.</p>
-          <p>I intend to release it for free when it’s ready and the asset permissions are in place. I’m not accepting donations.</p>
-        </section>
-      </div>
-      <div class="bottom-message"><a href="#home">Back to top ↑</a></div>
-    </main>
+    <main id="main" tabindex="-1"><section class="introduction" aria-labelledby="intro-title">
+  <h1 id="intro-title">Back to the Yogcave.</h1>
+  <p>I’m recreating the original Shadow of Israphel story as a playable Minecraft fan adventure, with Honeydew, Xephos, and a little more room to explore along the way.</p>
+</section>
+<section class="hero" aria-label="Gameplay trailer and project information">
+  <div class="trailer-block" id="trailer">
+    <h2 class="media-heading">First gameplay trailer <span>1:48</span></h2>
+    <div class="trailer-frame">
+      <video controls playsinline preload="none" poster="/assets/media/previews/01-mistral-overlook-1280.webp" width="1920" height="1080" aria-label="Shadow of Israphel gameplay trailer">
+        <source src="/assets/media/shadow-of-israphel-trailer.mp4" type="video/mp4">
+        <a href="/assets/media/shadow-of-israphel-trailer.mp4">Open the gameplay trailer</a>.
+      </video>
+      <button class="trailer-launch" type="button" aria-label="Play the Shadow of Israphel gameplay trailer" hidden><span aria-hidden="true">▶</span></button>
+    </div>
+    <p class="media-caption"><span>Gameplay from the private build · 1:48</span><a href="https://youtu.be/99c3DlrMxWU">Watch on YouTube ↗</a></p>
+    <p class="video-error" role="status" hidden>Video playback couldn’t start. Try the player’s controls, <a href="/assets/media/shadow-of-israphel-trailer.mp4">open the MP4</a>, or <a href="https://youtu.be/99c3DlrMxWU">watch on YouTube</a>.</p>
+  </div>
+  <aside class="project-links" aria-label="Follow the project">
+    <figure class="companions">
+      <img src="/assets/companions-render.png" alt="Honeydew with his diamond pickaxe beside Xephos in his red uniform." width="1200" height="1000">
+      <figcaption>Honeydew &amp; Xephos</figcaption>
+    </figure>
+    <p class="build-status"><strong>Still in development</strong><br>Private build. No release date yet.</p>
+    <a class="minecraft-button green-button" href="https://www.youtube.com/@ShadowofIsraphelFanProject">Follow on YouTube ↗</a>
+    <a class="discussion-link" href="https://www.reddit.com/r/Yogscast/comments/1xlg74g/shadow_of_israphel_fan_adventure_first_gameplay/">Join the Reddit discussion ↗</a>
+  </aside>
+</section>
+<section class="screenshots-section" id="screenshots" aria-labelledby="screenshots-title">
+  <div class="section-heading"><h2 id="screenshots-title"><img src="/assets/textures/map.png" alt="" width="24" height="24">From the adventure</h2><span class="section-meta">Six in-game captures</span></div>
+  <p class="section-intro">Mistral, the Yogcave, and a few familiar faces. Select a screenshot to see it full size.</p>
+  <div class="screenshot-grid" id="screenshot-grid"><figure>
+        <a class="screenshot-link" href="/assets/media/01-mistral-overlook.webp" data-caption="Mistral from above" aria-label="View Mistral from above full size">
+          <img src="/assets/media/previews/01-mistral-overlook-640.webp" srcset="/assets/media/previews/01-mistral-overlook-640.webp 640w, /assets/media/previews/01-mistral-overlook-1280.webp 1280w" sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 760px) calc((100vw - 72px) / 2), 300px" width="1920" height="1080" alt="Mistral above a lake, with stone towers, waterfalls, and airships." loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>01</span> Mistral from above</figcaption>
+      </figure>
+<figure>
+        <a class="screenshot-link" href="/assets/media/03-yogcave.webp" data-caption="The Yogcave" aria-label="View The Yogcave full size">
+          <img src="/assets/media/previews/03-yogcave-640.webp" srcset="/assets/media/previews/03-yogcave-640.webp 640w, /assets/media/previews/03-yogcave-1280.webp 1280w" sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 760px) calc((100vw - 72px) / 2), 300px" width="1920" height="1080" alt="The Yogcave entrance between snowy hills and pine trees." loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>02</span> The Yogcave</figcaption>
+      </figure>
+<figure>
+        <a class="screenshot-link" href="/assets/media/04-honeydew-and-xephos.webp" data-caption="Honeydew and Xephos" aria-label="View Honeydew and Xephos full size">
+          <img src="/assets/media/previews/04-honeydew-and-xephos-640.webp" srcset="/assets/media/previews/04-honeydew-and-xephos-640.webp 640w, /assets/media/previews/04-honeydew-and-xephos-1280.webp 1280w" sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 760px) calc((100vw - 72px) / 2), 300px" width="1920" height="1080" alt="Honeydew and Xephos beside the glowing opening portal." loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>03</span> Honeydew and Xephos</figcaption>
+      </figure>
+<figure>
+        <a class="screenshot-link" href="/assets/media/07-mistral-market.webp" data-caption="Mistral market" aria-label="View Mistral market full size">
+          <img src="/assets/media/previews/07-mistral-market-640.webp" srcset="/assets/media/previews/07-mistral-market-640.webp 640w, /assets/media/previews/07-mistral-market-1280.webp 1280w" sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 760px) calc((100vw - 72px) / 2), 300px" width="1920" height="1080" alt="A cobbled Mistral street, with Ms Miggles and Sir Marmalade." loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>04</span> Mistral market</figcaption>
+      </figure>
+<figure>
+        <a class="screenshot-link" href="/assets/media/12-entering-mistral.webp" data-caption="Entering Mistral" aria-label="View Entering Mistral full size">
+          <img src="/assets/media/previews/12-entering-mistral-640.webp" srcset="/assets/media/previews/12-entering-mistral-640.webp 640w, /assets/media/previews/12-entering-mistral-1280.webp 1280w" sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 760px) calc((100vw - 72px) / 2), 300px" width="1920" height="1080" alt="The road into Mistral beneath towers and an overhead airship." loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>05</span> Entering Mistral</figcaption>
+      </figure>
+<figure>
+        <a class="screenshot-link" href="/assets/media/02-mistral-airships.webp" data-caption="Airships over Mistral" aria-label="View Airships over Mistral full size">
+          <img src="/assets/media/previews/02-mistral-airships-640.webp" srcset="/assets/media/previews/02-mistral-airships-640.webp 640w, /assets/media/previews/02-mistral-airships-1280.webp 1280w" sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 760px) calc((100vw - 72px) / 2), 300px" width="1920" height="1080" alt="A closer view of Mistral’s elevated towers and airships." loading="lazy" decoding="async">
+        </a>
+        <figcaption><span>06</span> Airships over Mistral</figcaption>
+      </figure></div>
+</section>
+<div class="journal-layout">
+  <section id="updates" aria-labelledby="updates-title">
+    <div class="section-heading"><h2 id="updates-title"><img src="/assets/textures/book.png" alt="" width="24" height="24">Development notes</h2><a href="/feed.xml" class="section-meta">RSS</a></div>
+    <p class="section-intro">A few notes from the work so far. These first entries look back at the development records.</p>
+    <article class="journal-entry">
+      <p class="journal-meta"><time datetime="2026-11-01">1 November 2026</time> <span>· retrospective note</span></p>
+      <h3><a href="/blog/2026-11-01-first-gameplay-trailer/">The first gameplay trailer</a></h3>
+      <p>A first look at the private build, from the Yogcave to the airships above Mistral.</p>
+    </article>
+<article class="journal-entry">
+      <p class="journal-meta"><time datetime="2026-10-28">28 October 2026</time> <span>· retrospective note</span></p>
+      <h3><a href="/blog/2026-10-28-exploring-mistral/">A little more time in Mistral</a></h3>
+      <p>Optional errands, residents, and shops give the private build somewhere to linger after Episode 2.</p>
+    </article>
+<article class="journal-entry">
+      <p class="journal-meta"><time datetime="2026-10-28">28 October 2026</time> <span>· retrospective note</span></p>
+      <h3><a href="/blog/2026-10-28-companion-paths/">A small doorway, a stuck companion</a></h3>
+      <p>An Episode 1 playtest caught a blocked route. The fix lets the scene continue without skipping the walk.</p>
+    </article>
+    <p class="archive-link"><a href="/blog/">All development posts →</a></p>
+  </section>
+  <aside class="developer-note" id="about" aria-labelledby="about-title">
+    <h2 id="about-title">One person, spare evenings.</h2>
+    <p>Shadow of Israphel was a big part of growing up for me. I wanted to revisit it as something you could play.</p>
+    <p>I’m the only developer. I work full-time in the U.S. Army and have a family, so this moves along in my spare time.</p>
+    <h3>Where it stands</h3>
+    <p>The opening and Episodes 1–2 are playable in the private build, followed by exploration around Mistral. Companions, conversations, optional errands, and shops are working. They still need testing and refinement.</p>
+    <p>The original story remains the foundation. The extra exploration and activities are being built to fit that world. The later episodes are still ahead.</p>
+    <h3>A passion project</h3>
+    <p>This is independent, unofficial, and noncommercial. I intend to release it for free when it’s ready and the asset permissions are in place. There’s no public download or promised release date, and I’m not accepting donations.</p>
+  </aside>
+</div>
+<div class="bottom-message"><a href="#home">Back to top ↑</a></div>
+</main>
     <footer class="site-footer">
-      <p>Built on the community <a href="https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/maps/1514005-shadow-of-israphel-map-project-revision-13b" target="_blank" rel="noopener noreferrer">Shadow of Israphel Map Project</a>, started by Eckoro and continued by other builders. GeruDoku textures.</p>
-      <p class="legal">An unofficial fan project, not affiliated with The Yogscast, Mojang Studios, or Microsoft.<br>Characters, artwork, music, and other third-party assets belong to their respective owners.</p>
-      <p class="legal">Cookieless visitor statistics by <a href="https://umami.is/privacy" target="_blank" rel="noopener noreferrer">Umami</a>.</p>
+      <p>Built on the community <a href="https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/maps/1514005-shadow-of-israphel-map-project-revision-13b">Shadow of Israphel Map Project</a>, started by Eckoro and continued by other builders. GeruDoku textures.</p>
+      <p>An unofficial, noncommercial fan project. Not affiliated with or endorsed by The Yogscast, Mojang Studios, or Microsoft. Characters, artwork, music, and other third-party assets belong to their respective owners.</p>
+      <p><a href="/blog/">Development blog</a> · <a href="/blog/archive/">Archive</a> · <a href="/feed.xml">RSS feed</a><br>Cookieless visitor statistics by <a href="https://umami.is/privacy">Umami</a>.</p>
     </footer>
   </div>
-  <dialog class="lightbox" id="lightbox" aria-label="Screenshot viewer">
-    <div class="lightbox-toolbar"><p id="lightbox-count"></p><button class="minecraft-button" id="lightbox-close" type="button" autofocus>Close <span aria-hidden="true">×</span></button></div>
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+    <div class="lightbox-toolbar"><p id="lightbox-count" aria-live="polite"></p><button class="minecraft-button" id="lightbox-close" type="button" autofocus>Close ×</button></div>
     <img id="lightbox-image" alt="">
-    <div class="lightbox-bottom"><button class="minecraft-button" id="lightbox-prev" type="button" aria-label="Previous screenshot">←</button><p id="lightbox-caption" aria-live="polite"></p><button class="minecraft-button" id="lightbox-next" type="button" aria-label="Next screenshot">→</button></div>
+    <div class="lightbox-bottom"><button class="minecraft-button" id="lightbox-prev" type="button" aria-label="Previous screenshot">←</button><p id="lightbox-caption" aria-live="polite">Screenshot viewer</p><button class="minecraft-button" id="lightbox-next" type="button" aria-label="Next screenshot">→</button></div>
+    <a id="lightbox-original" href="/assets/media/01-mistral-overlook.webp" target="_blank" rel="noopener">Open original image ↗</a>
   </dialog>
 </body>
 </html>

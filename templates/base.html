@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#282720">
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta property="og:type" content="{{ og_type }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="https://shadowofisraphelproject.online/assets/media/01-mistral-overlook.webp">
+  <meta property="og:image:alt" content="Mistral's towers and airships in the private Minecraft fan adventure.">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>{{ title }}</title>
+  <link rel="icon" href="/assets/textures/diamond_pickaxe.png" type="image/png">
+  <link rel="preload" href="/assets/soi-adventure.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/rss+xml" title="Shadow of Israphel development blog" href="/feed.xml">
+  <script src="/app.js" defer></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="9637009f-7e4f-4f15-a06f-9648235f7372" data-domains="shadowofisraphelproject.online,www.shadowofisraphelproject.online" data-exclude-hash="true" data-do-not-track="true"></script>
+{{ structured_data }}
+</head>
+<body id="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="wordmark" href="/" aria-label="Shadow of Israphel home">
+        <span class="wordmark-top">SHADOW OF</span>
+        <span class="wordmark-main">ISRAPHEL</span>
+        <span class="wordmark-sub">A MINECRAFT FAN ADVENTURE</span>
+      </a>
+      <p class="header-note">An independent fan recreation<br><span>Minecraft Java Edition · Forge 1.20.1</span></p>
+    </header>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/" {{ home_current }}>Home</a>
+      <a href="/#trailer">Trailer</a>
+      <a href="/#screenshots">Screenshots</a>
+      <a href="/blog/" {{ blog_current }}>Development blog</a>
+      <a href="/#about">About</a>
+    </nav>
+    <div class="grass-edge" aria-hidden="true"></div>
+    <main id="main" tabindex="-1">{{ content }}</main>
+    <footer class="site-footer">
+      <p>Built on the community <a href="https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/maps/1514005-shadow-of-israphel-map-project-revision-13b">Shadow of Israphel Map Project</a>, started by Eckoro and continued by other builders. GeruDoku textures.</p>
+      <p>An unofficial, noncommercial fan project. Not affiliated with or endorsed by The Yogscast, Mojang Studios, or Microsoft. Characters, artwork, music, and other third-party assets belong to their respective owners.</p>
+      <p><a href="/blog/">Development blog</a> · <a href="/blog/archive/">Archive</a> · <a href="/feed.xml">RSS feed</a><br>Cookieless visitor statistics by <a href="https://umami.is/privacy">Umami</a>.</p>
+    </footer>
+  </div>
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+    <div class="lightbox-toolbar"><p id="lightbox-count" aria-live="polite"></p><button class="minecraft-button" id="lightbox-close" type="button" autofocus>Close ×</button></div>
+    <img id="lightbox-image" alt="">
+    <div class="lightbox-bottom"><button class="minecraft-button" id="lightbox-prev" type="button" aria-label="Previous screenshot">←</button><p id="lightbox-caption" aria-live="polite">Screenshot viewer</p><button class="minecraft-button" id="lightbox-next" type="button" aria-label="Next screenshot">→</button></div>
+    <a id="lightbox-original" href="/assets/media/01-mistral-overlook.webp" target="_blank" rel="noopener">Open original image ↗</a>
+  </dialog>
+</body>
+</html>
