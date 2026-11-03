@@ -85,6 +85,7 @@ main:focus { outline: none; }
 .section-intro { font-size: 14px; color: var(--muted); }
 .screenshot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 19px 18px; }
 .screenshot-grid figure { margin: 0; min-width: 0; }
+.screenshot-grid .screenshot-link img { aspect-ratio: 16/10; object-fit: contain; }
 .screenshot-link { display: block; padding: 3px; border: 1px solid #656a54; background: #10150d; cursor: zoom-in; }
 .screenshot-link:hover { border-color: #e4c37d; }
 .screenshot-link img { width: 100%; aspect-ratio: 16/9; height: auto; display: block; }
@@ -100,6 +101,9 @@ main:focus { outline: none; }
 .journal-entry h3 a { text-decoration: none; }
 .journal-entry h3 a:hover { text-decoration: underline; }
 .journal-entry p:last-child { margin: 0; }
+.update-screenshots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 480px; margin: 14px 0 10px; align-items: start; }
+.update-screenshots .screenshot-link img { aspect-ratio: auto; }
+.update-read-more { font-size: 13px; }
 .archive-link { margin: 19px 0 0; }
 .developer-note, .blog-sidebar { border-left: 1px solid var(--line); padding-left: 24px; font-size: 14px; }
 .developer-note h2 { font-size: 19px; }

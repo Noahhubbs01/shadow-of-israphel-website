@@ -61,6 +61,8 @@ Review screenshots for private chat, server addresses, desktop overlays, or mate
 
 The importer validates all screenshots before creating the post, copies originals byte for byte into a post-specific `assets/updates/` folder, creates compressed WebP previews, and writes a caption/alt-text manifest in `content/screenshots/`. It supports multiple PNG, JPEG, or WebP captures of different aspect ratios. It does not modify the game originals or generate imagery.
 
+Attached screenshots also appear as small previews in the homepage and blog listings. The importer records a `created_at` timestamp so multiple updates on one date appear in the right order.
+
 The post filename is `DATE-UPDATE_ID.md`; its URL is `/blog/DATE-UPDATE_ID/`. Do not rename published entries. The local `.announcement-receipts/` directory is ignored by Git and contains evidence references and source hashes. Keep the input handoff outside the repository too.
 
 ## 4. Inspect and publish

@@ -43,6 +43,12 @@ class AnnouncementTests(unittest.TestCase):
   page=out['blog/2026-11-03-build-test/index.html']
   self.assertEqual(page.count('class="screenshot-link"'),2)
   self.assertIn('Capture 1',page);self.assertIn('Full-size image',page)
+  for listing in ['index.html','blog/index.html']:
+   for shot in manifest:
+    self.assertIn(f'src="/{shot["preview"]}"',out[listing])
+    self.assertIn(f'href="/{shot["src"]}"',out[listing])
+    self.assertIn(shot['alt'],out[listing])
+  self.assertIn('created_at:',Path(result['post']).read_text())
   self.assertNotIn('private report path',''.join(out.values()))
  def test_retry_does_not_duplicate_or_replace(self):
   first=announce.import_update(self.payload,self.root,ready=True);text=Path(first['post']).read_text()

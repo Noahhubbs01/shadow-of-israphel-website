@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Import a completed update and screenshots into this website; never pushes Git."""
 import argparse
-from datetime import date
+from datetime import date, datetime, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -80,6 +80,7 @@ def import_update(payload, root=ROOT, ready=False):
             screenshots.append({'src': f'{base}/{original_name}', 'preview': f'{base}/{number:02d}-preview.webp', 'width': width, 'height': height, 'alt': alt, 'caption': caption})
             receipts.append({'source': str(source), 'sha256': original_hash})
         metadata = f'---\ntitle: {title}\ndate: {day}\nsummary: {summary}\nupdate_id: {update_id}\n'
+        metadata += f'created_at: {datetime.now(timezone.utc).isoformat(timespec="seconds")}\n'
         if not ready:
             metadata += 'draft: true\n'
         if screenshots:

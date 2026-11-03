@@ -46,6 +46,10 @@ def read_posts():
         event = date.fromisoformat(post['date'])
         post['written'] = post.get('written', post['date'])
         written = date.fromisoformat(post['written'])
+        created = datetime.fromisoformat(post.get('created_at', post['written'] + 'T00:00:00+00:00'))
+        if created.tzinfo is None:
+            raise ValueError(f'{path.name}: created_at needs a timezone offset')
+        post['created_order'] = created.timestamp()
         if written < event:
             raise ValueError(f'{path.name}: written date cannot precede the development date')
         if not re.fullmatch(r'\d{4}-\d{2}-\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*', path.stem):
@@ -89,7 +93,7 @@ def read_posts():
                 post['screenshots_data'].append(shot)
         post.update(slug=path.stem, url=f'/blog/{path.stem}/', body=markdown.markdown(body, extensions=['sane_lists', 'fenced_code']), month=post['date'][:7], retrospective=post.get('retrospective') == 'true')
         posts.append(post)
-    return sorted(posts, key=lambda p: (p['date'], p['slug']), reverse=True)
+    return sorted(posts, key=lambda p: (p['date'], p['created_order'], p['slug']), reverse=True)
 
 
 def human_date(value):
@@ -105,10 +109,16 @@ def post_date(post):
 
 
 def excerpt(post):
+    screenshots = ''.join(f'''<a class="screenshot-link" href="/{escape(shot['src'])}" data-caption="{escape(shot['caption'])}" aria-label="View screenshot full size: {escape(shot['alt'])}">
+        <img src="/{escape(shot['preview'])}" width="{shot['width']}" height="{shot['height']}" loading="lazy" decoding="async" alt="{escape(shot['alt'])}">
+      </a>''' for shot in post['screenshots_data'])
+    if screenshots:
+        screenshots = f'<div class="update-screenshots">{screenshots}</div>'
     return f'''<article class="journal-entry">
       {post_date(post)}
       <h3><a href="{post['url']}">{escape(post['title'])}</a></h3>
       <p>{escape(post['summary'])}</p>
+      {screenshots}<p class="update-read-more"><a href="{post['url']}">Read the update →</a></p>
     </article>'''
 
 
@@ -154,7 +164,7 @@ def outputs():
         rendered[path.lstrip('/') + 'index.html'] = template('base.html', title=escape(title), description=escape(description), canonical=ORIGIN + path, og_type='article' if article else 'website', home_current='aria-current="page"' if path == '/' else '', blog_current='aria-current="page"' if path.startswith('/blog/') else '', content=content, structured_data=schema)
         pages.append(path)
 
-    homepage = template('home.html', trailer=video_html(media), gallery=gallery_html(media), latest_posts='\n'.join(excerpt(p) for p in posts[:3]))
+    homepage = template('home.html', trailer=video_html(media), gallery=gallery_html(media), screenshot_count=len(media['screenshots']), latest_posts='\n'.join(excerpt(p) for p in posts[:3]))
     page('/', 'Shadow of Israphel — A Minecraft fan adventure', 'An independent, unofficial Shadow of Israphel fan recreation. Watch real gameplay, explore screenshots, and follow this solo Minecraft passion project.', homepage)
 
     months = Counter(p['month'] for p in posts)

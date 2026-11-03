@@ -1,6 +1,7 @@
 ---
 title: A bridge, a blank licence, and Fumblemore
 date: 2026-11-03
+created_at: 2026-11-03T16:17:38+00:00
 summary: Episode 4 now continues the Mistral tour into the upper city, across a companion-built bridge and into Fumblemore’s rather confused consultation.
 update_id: episode-four-bridge-and-fumblemore
 screenshots: content/screenshots/2026-11-03-episode-four-bridge-and-fumblemore.json

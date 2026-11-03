@@ -1,6 +1,7 @@
 ---
 title: Getting the city tour moving
 date: 2026-11-03
+created_at: 2026-11-03T15:07:45+00:00
 summary: Episode 3 follows Lysander around Mistral, with a visit to Granny, snowball tennis, and a few very awkward gravestones.
 update_id: episode-three-city-tour-development
 screenshots: content/screenshots/2026-11-03-episode-three-city-tour-development.json
