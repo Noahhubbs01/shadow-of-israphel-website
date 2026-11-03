@@ -1,0 +1,18 @@
+[
+  {
+    "src": "assets/updates/2026-11-03-episode-four-bridge-and-fumblemore/01-original.png",
+    "preview": "assets/updates/2026-11-03-episode-four-bridge-and-fumblemore/01-preview.webp",
+    "width": 1280,
+    "height": 772,
+    "alt": "The stone crossing leads toward Fumblemore’s tower above Mistral, with the tower-search objective visible.",
+    "caption": "The crossing and wizard’s tower, captured during the first Episode 4 development run on 3 November. This image predates the final stair-navigation correction."
+  },
+  {
+    "src": "assets/updates/2026-11-03-episode-four-bridge-and-fumblemore/02-original.png",
+    "preview": "assets/updates/2026-11-03-episode-four-bridge-and-fumblemore/02-preview.webp",
+    "width": 1280,
+    "height": 772,
+    "alt": "Fumblemore stands among the library bookshelves while his dialogue calls Xephos Zapdos; the companions are nearby.",
+    "caption": "Fumblemore’s introduction during the verified fresh Episode 4 run. This is the actual in-game dialogue panel, captured from Minecraft without compositing."
+  }
+]
