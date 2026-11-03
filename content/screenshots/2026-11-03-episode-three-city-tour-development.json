@@ -1,0 +1,18 @@
+[
+  {
+    "src": "assets/updates/2026-11-03-episode-three-city-tour-development/01-original.png",
+    "preview": "assets/updates/2026-11-03-episode-three-city-tour-development/01-preview.webp",
+    "width": 1280,
+    "height": 772,
+    "alt": "Lysander and Old Peculier upstairs at the Elysium, with two conversation choices above the hotbar.",
+    "caption": "Episode 3 development build: speak with Lysander to start the tour. Peculier remains at the Elysium."
+  },
+  {
+    "src": "assets/updates/2026-11-03-episode-three-city-tour-development/02-original.png",
+    "preview": "assets/updates/2026-11-03-episode-three-city-tour-development/02-preview.webp",
+    "width": 1280,
+    "height": 772,
+    "alt": "Honeydew, Lysander and Granny Bacon inside the teashop, with Lysander asking whether the pair want privacy in the story dialogue panel.",
+    "caption": "An actual dialogue moment from the Episode 3 test. Honeydew lingers at the teashop while the tour continues."
+  }
+]

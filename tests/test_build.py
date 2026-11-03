@@ -33,8 +33,9 @@ class AuthoringTests(unittest.TestCase):
  def post(self,text):
   (self.root/'content/posts/2026-11-04-a-new-update.md').write_text(text)
  def test_drafts_are_not_exposed(self):
+  published_count=len(build.read_posts())
   self.post('---\ntitle: Secret draft\ndate: 2026-11-04\nsummary: Not ready\ndraft: true\n---\nPrivate draft body')
-  self.assertEqual(len(build.read_posts()),5)
+  self.assertEqual(len(build.read_posts()),published_count)
   self.assertNotIn('Private draft body',''.join(build.outputs().values()))
  def test_sixth_post_creates_pagination_and_feed(self):
   self.post('---\ntitle: A new update\ndate: 2026-11-04\nsummary: New work\n---\nA **real** update.')

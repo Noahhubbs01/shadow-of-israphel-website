@@ -75,6 +75,6 @@ class AnnouncementTests(unittest.TestCase):
   self.payload['screenshots']=[]
   result=announce.import_update(self.payload,self.root,ready=True)
   self.assertEqual(result['screenshots'],0)
-  self.assertFalse((self.root/'assets/updates').exists())
+  self.assertFalse((self.root/'assets/updates/2026-11-03-build-test').exists())
 
 if __name__=='__main__':unittest.main()
