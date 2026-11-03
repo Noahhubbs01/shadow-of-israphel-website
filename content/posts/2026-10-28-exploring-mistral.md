@@ -4,9 +4,7 @@ date: 2026-10-28
 written: 2026-11-03
 summary: Optional errands, residents, and shops give the private build somewhere to linger after Episode 2.
 retrospective: true
-image: assets/media/07-mistral-market.webp
-image_alt: Ms Miggles and Sir Marmalade on a cobbled street in Mistral.
-image_caption: Mistral market in the later November trailer build; this is not an October progress capture.
+screenshots: content/screenshots/2026-10-28-exploring-mistral.json
 ---
 After the early story scenes, I wanted Mistral to be somewhere you could spend a little time. The first town expansion adds residents, optional errands, shops, and daily routines to the private build.
 

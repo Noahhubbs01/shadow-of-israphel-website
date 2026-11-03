@@ -26,6 +26,7 @@ def template(name, **values):
 
 def read_posts():
     posts = []
+    update_ids = set()
     for path in sorted((ROOT / 'content/posts').glob('*.md')):
         source = path.read_text()
         if not source.startswith('---\n'):
@@ -64,6 +65,28 @@ def read_posts():
                     raise ValueError(f'{path.name}: {key} must exist under assets/')
         if post.get('video_url') and urlsplit(post['video_url']).scheme != 'https':
             raise ValueError(f'{path.name}: video_url must use HTTPS')
+        if post.get('update_id'):
+            if post['update_id'] in update_ids:
+                raise ValueError(f'{path.name}: duplicate update_id')
+            update_ids.add(post['update_id'])
+        post['screenshots_data'] = []
+        if post.get('screenshots'):
+            manifest = (ROOT / post['screenshots']).resolve()
+            if not manifest.is_relative_to(ROOT / 'content/screenshots') or not manifest.is_file():
+                raise ValueError(f'{path.name}: screenshots manifest must exist under content/screenshots/')
+            attachments = json.loads(manifest.read_text())
+            if not isinstance(attachments, list) or not attachments:
+                raise ValueError(f'{path.name}: screenshots manifest must be a nonempty array')
+            for shot in attachments:
+                if not isinstance(shot, dict) or not all(isinstance(shot.get(k), str) and shot[k].strip() for k in ('src', 'preview', 'alt', 'caption')):
+                    raise ValueError(f'{path.name}: each screenshot needs src, preview, alt and caption')
+                if not all(isinstance(shot.get(k), int) and shot[k] > 0 for k in ('width', 'height')):
+                    raise ValueError(f'{path.name}: screenshot dimensions must be positive integers')
+                for key in ('src', 'preview'):
+                    target = (ROOT / shot[key]).resolve()
+                    if not target.is_relative_to(ROOT / 'assets') or not target.is_file():
+                        raise ValueError(f'{path.name}: screenshot {key} must exist under assets/')
+                post['screenshots_data'].append(shot)
         post.update(slug=path.stem, url=f'/blog/{path.stem}/', body=markdown.markdown(body, extensions=['sane_lists', 'fenced_code']), month=post['date'][:7], retrospective=post.get('retrospective') == 'true')
         posts.append(post)
     return sorted(posts, key=lambda p: (p['date'], p['slug']), reverse=True)
@@ -168,6 +191,12 @@ def outputs():
             shot = next((s for s in media['screenshots'] if s['src'] == post['image']), None)
             preview = shot['preview'] if shot else post['image']
             body += f'<figure class="post-image"><a href="/{escape(post["image"])}"><img src="/{escape(preview)}" width="1920" height="1080" loading="lazy" alt="{escape(post["image_alt"])}"></a><figcaption>{escape(post["image_caption"])}</figcaption></figure>'
+        for shot in post['screenshots_data']:
+            body += f'''<figure class="post-image">
+              <a class="screenshot-link" href="/{escape(shot['src'])}" data-caption="{escape(shot['caption'])}" aria-label="View screenshot full size: {escape(shot['alt'])}">
+                <img src="/{escape(shot['preview'])}" width="{shot['width']}" height="{shot['height']}" loading="lazy" decoding="async" alt="{escape(shot['alt'])}">
+              </a><figcaption>{escape(shot['caption'])} <a href="/{escape(shot['src'])}">Full-size image</a></figcaption>
+            </figure>'''
         if post.get('video') == 'true':
             selection = dict(media['trailer'])
             for key, field in [('video_src', 'src'), ('video_poster', 'poster'), ('video_caption', 'caption'), ('video_url', 'youtube')]:

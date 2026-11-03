@@ -2,6 +2,8 @@
 
 The blog is plain Markdown turned into static HTML. It costs nothing extra to host and works without visitor JavaScript.
 
+For another work mode handing off a completed update with **multiple screenshots**, use [the announcement importer and publishing workflow](ANNOUNCEMENTS.md). It creates the Markdown, copies original images, makes small previews, and adds captions/full-size viewing in one command.
+
 1. Create a draft from the website directory:
 
    ```sh
@@ -18,9 +20,9 @@ The blog is plain Markdown turned into static HTML. It costs nothing extra to ho
    python3 scripts/preview.py
    ```
 
-4. Open http://127.0.0.1:8765/blog/ and the new post. Check links, dates, image descriptions, and mobile layout. Commit the Markdown and generated pages together on the review branch. Publishing still requires owner approval; pushing `main` deploys automatically.
+4. Open http://127.0.0.1:8765/blog/ and the new post. Check links, dates, image descriptions, and mobile layout. Commit the Markdown and generated pages together on an isolated branch. Routine announcements requested by the owner follow [the publishing workflow](ANNOUNCEMENTS.md); respect any later hold/review instruction. Pushing `main` deploys automatically.
 
-If the `.venv` does not exist, follow the one-time setup in the [README](../README.md). Python 3.10+ is required. Preview and draft creation use only the Python standard library.
+If the `.venv` does not exist, follow the one-time setup in the [README](../README.md). Python 3.10+ is required for the build; the screenshot importer uses Pillow from the pinned requirements. Preview and basic draft creation use only the Python standard library.
 
 ## Post format
 

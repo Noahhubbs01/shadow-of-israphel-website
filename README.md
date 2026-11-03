@@ -21,7 +21,7 @@ python3 -m venv .venv
 
 Then edit:
 
-- `content/posts/*.md` for development posts. See [the blog guide](docs/BLOG.md).
+- `content/posts/*.md` for development posts. See [the blog guide](docs/BLOG.md) or [the work-mode announcement workflow](docs/ANNOUNCEMENTS.md) for text with multiple screenshot attachments.
 - `templates/home.html` for homepage writing.
 - `templates/base.html` for shared navigation, metadata, and footer.
 - `templates/blog.html` for the blog sidebar and shared layout.
@@ -34,7 +34,7 @@ Run the authoring regression tests with `.venv/bin/python -m unittest discover -
 
 ## Hosting and review
 
-The custom domain remains `shadowofisraphelproject.online`; GitHub Pages serves the `main` branch from `/`. A push to `main` publishes automatically. Keep website changes on a review branch until the owner explicitly approves the finished preview. Review the complete diff and generated output before any merge or push to `main`. This refinement has not been deployed.
+The custom domain remains `shadowofisraphelproject.online`; GitHub Pages serves the `main` branch from `/`. A push to `main` publishes automatically. The owner approved this redesign for publication on 3 November 2026 and requested routine update announcements with screenshot attachments. See [the announcement workflow](docs/ANNOUNCEMENTS.md). Unrelated redesigns still need review; a later instruction to hold publication takes precedence. Review the complete diff and generated output before any push to `main`.
 
 Umami uses the existing website ID, domain allowlist, hash exclusion, and Do Not Track setting in `templates/base.html`. Local previews are excluded from analytics collection. Canonical URLs always use the live HTTPS domain. Never put a preview noindex directive into the production HTML or robots.txt.
 

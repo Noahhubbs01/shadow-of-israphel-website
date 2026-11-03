@@ -1,5 +1,6 @@
 import importlib.util
 from pathlib import Path
+import json
 import shutil
 import tempfile
 import unittest
@@ -21,6 +22,11 @@ class AuthoringTests(unittest.TestCase):
   (self.root/'assets/media/shadow-of-israphel-trailer.mp4').touch()
   (self.root/'assets/media/previews').mkdir()
   (self.root/'assets/media/previews/01-mistral-overlook-1280.webp').touch()
+  for manifest in (self.root/'content/screenshots').glob('*.json'):
+   for shot in json.loads(manifest.read_text()):
+    for key in ('src','preview'):
+     (self.root/shot[key]).parent.mkdir(parents=True,exist_ok=True)
+     (self.root/shot[key]).touch()
   self.mock=patch.object(build,'ROOT',self.root);self.mock.start()
  def tearDown(self):
   self.mock.stop();self.temp.cleanup()

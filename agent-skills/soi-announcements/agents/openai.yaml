@@ -1,0 +1,4 @@
+interface:
+  display_name: "SOI Update Announcements"
+  short_description: "Publish verified SOI updates with gameplay screenshots"
+  default_prompt: "Use $soi-announcements to announce the completed Shadow of Israphel update and attach its gameplay screenshots."
