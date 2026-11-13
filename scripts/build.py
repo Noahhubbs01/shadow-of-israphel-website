@@ -64,6 +64,9 @@ def read_posts():
                 raise ValueError(f'{path.name}: image must exist under assets/')
         for key in ('video_src', 'video_poster'):
             if post.get(key):
+                remote = urlsplit(post[key])
+                if key == 'video_src' and remote.scheme == 'https' and remote.netloc:
+                    continue
                 media_path = (ROOT / post[key]).resolve()
                 if not media_path.is_relative_to(ROOT / 'assets') or not media_path.is_file():
                     raise ValueError(f'{path.name}: {key} must exist under assets/')
@@ -127,15 +130,18 @@ def excerpt(post):
 def video_html(media):
     trailer = media['trailer']
     youtube = escape(trailer.get('youtube', 'https://youtu.be/99c3DlrMxWU'))
+    source = escape(trailer['src'] if trailer['src'].startswith('https://') else '/' + trailer['src'])
+    title = escape(trailer.get('title', 'Shadow of Israphel gameplay trailer'))
+    youtube_label = escape(trailer.get('youtube_label', 'Watch on YouTube ↗'))
     return f'''<div class="trailer-frame">
-      <video controls playsinline preload="none" poster="/{escape(trailer['poster'])}" width="1920" height="1080" aria-label="Shadow of Israphel gameplay trailer">
-        <source src="/{escape(trailer['src'])}" type="video/mp4">
-        <a href="/{escape(trailer['src'])}">Open the gameplay trailer</a>.
+      <video controls playsinline preload="none" poster="/{escape(trailer['poster'])}" width="1920" height="1080" aria-label="{title}">
+        <source src="{source}" type="video/mp4">
+        <a href="{source}">Open the video</a>.
       </video>
-      <button class="trailer-launch" type="button" aria-label="Play the Shadow of Israphel gameplay trailer" hidden><span aria-hidden="true">▶</span></button>
+      <button class="trailer-launch" type="button" aria-label="Play {title}" hidden><span aria-hidden="true">▶</span></button>
     </div>
-    <p class="media-caption"><span>{escape(trailer['caption'])}</span><a href="{youtube}">Watch on YouTube ↗</a></p>
-    <p class="video-error" role="status" hidden>Video playback couldn’t start. Try the player’s controls, <a href="/{escape(trailer['src'])}">open the MP4</a>, or <a href="{youtube}">watch on YouTube</a>.</p>'''
+    <p class="media-caption"><span>{escape(trailer['caption'])}</span><a href="{youtube}">{youtube_label}</a></p>
+    <p class="video-error" role="status" hidden>Video playback couldn’t start. Try the player’s controls or <a href="{source}">open the MP4</a>.</p>'''
 
 
 def youtube_html(video_id, title, caption):
@@ -176,7 +182,9 @@ def outputs():
         pages.append(path)
 
     playthrough = media.get('playthrough')
-    playthrough_html = youtube_html(playthrough['id'], playthrough['title'], playthrough['caption']) if playthrough else ''
+    playthrough_html = ''
+    if playthrough:
+        playthrough_html = video_html({'trailer': playthrough}) if playthrough.get('src') else youtube_html(playthrough['id'], playthrough['title'], playthrough['caption'])
     homepage = template('home.html', trailer=video_html(media), playthrough=playthrough_html, gallery=gallery_html(media), screenshot_count=len(media['screenshots']), latest_posts='\n'.join(excerpt(p) for p in posts[:3]))
     page('/', 'Shadow of Israphel — A Minecraft fan adventure', 'An independent, unofficial Shadow of Israphel fan recreation. Watch real gameplay, explore screenshots, and follow this solo Minecraft passion project.', homepage)
 
@@ -224,7 +232,7 @@ def outputs():
             </figure>'''
         if post.get('video') == 'true':
             selection = dict(media['trailer'])
-            for key, field in [('video_src', 'src'), ('video_poster', 'poster'), ('video_caption', 'caption'), ('video_url', 'youtube')]:
+            for key, field in [('video_src', 'src'), ('video_poster', 'poster'), ('video_caption', 'caption'), ('video_url', 'youtube'), ('video_title', 'title'), ('video_youtube_label', 'youtube_label')]:
                 if post.get(key):
                     selection[field] = post[key]
             body += '<div class="post-video">' + video_html({'trailer': selection}) + '</div>'

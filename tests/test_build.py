@@ -54,6 +54,25 @@ class AuthoringTests(unittest.TestCase):
  def test_missing_summary_is_rejected(self):
   self.post('---\ntitle: Update\ndate: 2026-11-04\n---\nContent')
   with self.assertRaisesRegex(ValueError,'missing summary'):build.read_posts()
+ def test_direct_playthrough_is_above_original_trailer_with_youtube_link(self):
+  out=build.outputs()
+  home=out['index.html']
+  self.assertEqual(home.count('<video '),2)
+  self.assertNotIn('<iframe',home)
+  self.assertLess(home.index('shadow-of-israphel-playthrough-1080p60.mp4'),home.index('/assets/media/shadow-of-israphel-trailer.mp4'))
+  self.assertIn('https://youtu.be/x04XBUYBdSk',home)
+  self.assertIn('Watch on YouTube',home)
+ def test_direct_https_video_preserves_source_and_accessible_name(self):
+  url='https://example.com/playthrough.mp4'
+  self.post('---\ntitle: New showcase\ndate: 2026-11-04\nsummary: Work\nvideo: true\nvideo_src: '+url+'\nvideo_title: No-commentary playthrough\n---\nContent')
+  post=build.outputs()['blog/2026-11-04-a-new-update/index.html']
+  self.assertIn('src="'+url+'"',post)
+  self.assertIn('aria-label="No-commentary playthrough"',post)
+  self.assertIn('preload="none"',post)
+  self.assertNotIn('autoplay',post)
+ def test_insecure_remote_video_is_rejected(self):
+  self.post('---\ntitle: Bad video\ndate: 2026-11-04\nsummary: Work\nvideo: true\nvideo_src: http://example.com/video.mp4\n---\nContent')
+  with self.assertRaisesRegex(ValueError,'video_src'):build.read_posts()
  def test_youtube_showcase_does_not_replace_historical_trailer(self):
   self.post('---\ntitle: New showcase\ndate: 2026-11-04\nsummary: No commentary\nyoutube_id: AbCdEf123_-\nvideo_caption: 18 minutes\n---\nContent')
   out=build.outputs()

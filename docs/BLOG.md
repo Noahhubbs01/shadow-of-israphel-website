@@ -68,7 +68,7 @@ video_caption: Original gameplay trailer · Private build
 
 The example uses the original public trailer. Replace it with the actual approved upload ID and a factual caption. Wait for the upload, HD processing, and public availability before adding its embed. An announcement can be published earlier with a clear “coming soon” note and no `youtube_id`.
 
-The homepage's latest long-form video is selected by an optional `playthrough` object in `media.js`, with `id`, `title`, and `caption` fields. When the new video is public, add that object and the post's `youtube_id` and `video_caption`, then replace the coming-soon wording in `templates/home.html` and the post. The original trailer remains separate.
+The homepage's latest long-form video is selected by an optional `playthrough` object in `media.js`. For direct playback, use `src`, `poster`, `title`, `caption`, and `youtube`; `youtube_label` can indicate that the YouTube upload is not yet public. This renders the site's native player above the original trailer. An `id`, `title`, and `caption` object instead selects the optional YouTube player. Use direct playback for the November 13 showcase, as requested by the owner.
 
 Add `video: true` to embed the current approved gameplay trailer with native controls, no autoplay, and the same YouTube fallback. To pin an entry to particular approved footage, or embed a new development video, add:
 
@@ -80,7 +80,9 @@ video_caption: Gameplay from the private build · 1:48
 video_url: https://youtu.be/99c3DlrMxWU
 ```
 
-Use the real local MP4 path, authentic screenshot poster, caption, and HTTPS YouTube URL for that update. Both local files must already exist under `assets/`. The first trailer post pins its original footage this way, so changing the homepage trailer later cannot silently change the historical entry. The build does not upload or re-encode footage. Other videos can also be ordinary Markdown links; do not paste autoplay embeds. Change the homepage's selected trailer through `media.js` after footage approval.
+Use the real MP4 path, authentic screenshot poster, caption, and HTTPS YouTube URL for that update. Local files must already exist under `assets/`; `video_src` also accepts a direct HTTPS MP4 URL. Optional `video_title` and `video_youtube_label` set the accessible player name and the link label. The first trailer post pins its original footage this way, so changing the homepage trailer later cannot silently change the historical entry. The build does not upload or re-encode footage. Other videos can also be ordinary Markdown links; do not paste autoplay embeds. Change the homepage's selected trailer through `media.js` after footage approval.
+
+The November 13 playthrough uses a fast-start H.264/AAC MP4 hosted as a media asset in this repository's `media-playthrough-2026-11-13` GitHub release. This is a video asset, not a downloadable game release. Keep the large MP4 out of Git history and Pages builds. Verify byte-range requests, playback, and seeking from the production page after upload; the stable release download URL belongs in `media.js` and the post. Keep the original desktop master untouched.
 
 ## Retrospective notes
 

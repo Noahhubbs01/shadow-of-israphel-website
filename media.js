@@ -142,5 +142,13 @@ window.SOI_MEDIA = {
       "thumbnail": "assets/gameplay/2026-11-03/12-ms-miggles-640.webp",
       "preview": "assets/gameplay/2026-11-03/12-ms-miggles-1280.webp"
     }
-  ]
+  ],
+  "playthrough": {
+    "src": "https://github.com/Noahhubbs01/shadow-of-israphel-website/releases/download/media-playthrough-2026-11-13/shadow-of-israphel-playthrough-1080p60.mp4",
+    "poster": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/01-preview.webp",
+    "title": "Shadow of Israphel no-commentary playthrough",
+    "caption": "Private-build playtest · 18:39 · No commentary · 1080p60",
+    "youtube": "https://youtu.be/x04XBUYBdSk",
+    "youtube_label": "Watch on YouTube ↗"
+  }
 };
