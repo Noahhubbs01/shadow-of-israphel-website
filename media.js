@@ -8,6 +8,33 @@ window.SOI_MEDIA = {
   },
   "screenshots": [
     {
+      "src": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/01-original.png",
+      "preview": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/01-preview.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Honeydew stands on a cobblestone bridge high above Mistral, with Fumblemore’s tower and an airship ahead.",
+      "caption": "Crossing to Fumblemore’s tower · November 13 private-build playtest.",
+      "thumbnail": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/01-thumbnail.webp"
+    },
+    {
+      "src": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/02-original.png",
+      "preview": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/02-preview.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "A cobbled street curves around Mistral’s blue fountains beneath floating platforms, with residents nearby.",
+      "caption": "Mistral’s fountains and residents · November 13 private-build playtest.",
+      "thumbnail": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/02-thumbnail.webp"
+    },
+    {
+      "src": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/03-original.png",
+      "preview": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/03-preview.webp",
+      "width": 1920,
+      "height": 1080,
+      "alt": "Ms Miggles stands beside her black cat Sir Marmalade on a cobbled Mistral street.",
+      "caption": "Ms Miggles reunited with Sir Marmalade after the optional quest · November 13 playtest.",
+      "thumbnail": "assets/updates/2026-11-13-episode-seven-progress-and-playthrough/03-thumbnail.webp"
+    },
+    {
       "src": "assets/gameplay/2026-11-03/01-opening-companions.png",
       "alt": "Honeydew and Xephos stand at the ruined portal while Honeydew’s story dialogue asks where he is.",
       "caption": "Episode 1 · Honeydew after the crash",

@@ -54,6 +54,17 @@ class AuthoringTests(unittest.TestCase):
  def test_missing_summary_is_rejected(self):
   self.post('---\ntitle: Update\ndate: 2026-11-04\n---\nContent')
   with self.assertRaisesRegex(ValueError,'missing summary'):build.read_posts()
+ def test_youtube_showcase_does_not_replace_historical_trailer(self):
+  self.post('---\ntitle: New showcase\ndate: 2026-11-04\nsummary: No commentary\nyoutube_id: AbCdEf123_-\nvideo_caption: 18 minutes\n---\nContent')
+  out=build.outputs()
+  post=out['blog/2026-11-04-a-new-update/index.html']
+  self.assertIn('https://www.youtube-nocookie.com/embed/AbCdEf123_-?rel=0',post)
+  self.assertNotIn('autoplay=1',post)
+  self.assertNotIn('<video ',post)
+  self.assertIn('/assets/media/shadow-of-israphel-trailer.mp4',out['blog/2026-11-01-first-gameplay-trailer/index.html'])
+ def test_invalid_youtube_id_is_rejected(self):
+  self.post('---\ntitle: Bad embed\ndate: 2026-11-04\nsummary: Work\nyoutube_id: https://example.com/video\n---\nContent')
+  with self.assertRaisesRegex(ValueError,'youtube_id'):build.read_posts()
  def test_image_requires_caption_and_alt(self):
   self.post('---\ntitle: Update\ndate: 2026-11-04\nsummary: Work\nimage: assets/media/03-yogcave.webp\n---\nContent')
   with self.assertRaisesRegex(ValueError,'image needs'):build.read_posts()
@@ -67,7 +78,7 @@ class AuthoringTests(unittest.TestCase):
  def test_same_day_updates_follow_creation_time_across_timezones(self):
   self.post('---\ntitle: Earlier\ndate: 2026-11-04\ncreated_at: 2026-11-04T10:00:00-06:00\nsummary: Work\n---\nEarlier update')
   (self.root/'content/posts/2026-11-04-a-later-update.md').write_text('---\ntitle: Later\ndate: 2026-11-04\ncreated_at: 2026-11-04T17:00:00+00:00\nsummary: Work\n---\nLater update')
-  self.assertEqual([p['title'] for p in build.read_posts()[:2]],['Later','Earlier'])
+  self.assertEqual([p['title'] for p in build.read_posts() if p['date']=='2026-11-04'],['Later','Earlier'])
   out=build.outputs()
   for name in ['index.html','blog/index.html','feed.xml']:
    self.assertLess(out[name].index('Later'),out[name].index('Earlier'))

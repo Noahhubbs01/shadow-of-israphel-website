@@ -59,6 +59,17 @@ The build requires an existing local image, alt text, and caption. It uses the s
 
 ## Optional video
 
+For a longer development video hosted on YouTube, use its 11-character ID. The build adds a responsive, lazy-loaded YouTube privacy-enhanced player with no autoplay and a direct viewing link. This keeps large video files out of the Pages repository:
+
+```text
+youtube_id: 99c3DlrMxWU
+video_caption: Original gameplay trailer · Private build
+```
+
+The example uses the original public trailer. Replace it with the actual approved upload ID and a factual caption. Wait for the upload, HD processing, and public availability before adding its embed. An announcement can be published earlier with a clear “coming soon” note and no `youtube_id`.
+
+The homepage's latest long-form video is selected by an optional `playthrough` object in `media.js`, with `id`, `title`, and `caption` fields. When the new video is public, add that object and the post's `youtube_id` and `video_caption`, then replace the coming-soon wording in `templates/home.html` and the post. The original trailer remains separate.
+
 Add `video: true` to embed the current approved gameplay trailer with native controls, no autoplay, and the same YouTube fallback. To pin an entry to particular approved footage, or embed a new development video, add:
 
 ```text

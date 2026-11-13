@@ -69,6 +69,8 @@ def read_posts():
                     raise ValueError(f'{path.name}: {key} must exist under assets/')
         if post.get('video_url') and urlsplit(post['video_url']).scheme != 'https':
             raise ValueError(f'{path.name}: video_url must use HTTPS')
+        if post.get('youtube_id') and not re.fullmatch(r'[A-Za-z0-9_-]{11}', post['youtube_id']):
+            raise ValueError(f'{path.name}: youtube_id must be an 11-character video ID')
         if post.get('update_id'):
             if post['update_id'] in update_ids:
                 raise ValueError(f'{path.name}: duplicate update_id')
@@ -136,6 +138,15 @@ def video_html(media):
     <p class="video-error" role="status" hidden>Video playback couldn’t start. Try the player’s controls, <a href="/{escape(trailer['src'])}">open the MP4</a>, or <a href="{youtube}">watch on YouTube</a>.</p>'''
 
 
+def youtube_html(video_id, title, caption):
+    if not re.fullmatch(r'[A-Za-z0-9_-]{11}', video_id):
+        raise ValueError('Invalid YouTube video ID')
+    return f'''<div class="youtube-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/{video_id}?rel=0" title="{escape(title)}" width="1920" height="1080" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <p class="media-caption"><span>{escape(caption)}</span><a href="https://youtu.be/{video_id}">Watch on YouTube ↗</a></p>'''
+
+
 def gallery_html(media):
     figures = []
     for i, shot in enumerate(media['screenshots'], 1):
@@ -164,7 +175,9 @@ def outputs():
         rendered[path.lstrip('/') + 'index.html'] = template('base.html', title=escape(title), description=escape(description), canonical=ORIGIN + path, og_type='article' if article else 'website', home_current='aria-current="page"' if path == '/' else '', blog_current='aria-current="page"' if path.startswith('/blog/') else '', content=content, structured_data=schema)
         pages.append(path)
 
-    homepage = template('home.html', trailer=video_html(media), gallery=gallery_html(media), screenshot_count=len(media['screenshots']), latest_posts='\n'.join(excerpt(p) for p in posts[:3]))
+    playthrough = media.get('playthrough')
+    playthrough_html = youtube_html(playthrough['id'], playthrough['title'], playthrough['caption']) if playthrough else ''
+    homepage = template('home.html', trailer=video_html(media), playthrough=playthrough_html, gallery=gallery_html(media), screenshot_count=len(media['screenshots']), latest_posts='\n'.join(excerpt(p) for p in posts[:3]))
     page('/', 'Shadow of Israphel — A Minecraft fan adventure', 'An independent, unofficial Shadow of Israphel fan recreation. Watch real gameplay, explore screenshots, and follow this solo Minecraft passion project.', homepage)
 
     months = Counter(p['month'] for p in posts)
@@ -197,6 +210,8 @@ def outputs():
         if post['retrospective']:
             body += f'<p class="archive-note">Looking back at work recorded on {human_date(post["date"])}. Written {human_date(post["written"])}.</p>'
         body += f'<div class="post-body">{post["body"]}</div>'
+        if post.get('youtube_id'):
+            body += '<div class="post-video">' + youtube_html(post['youtube_id'], post['title'], post.get('video_caption', 'Gameplay from the private development build')) + '</div>'
         if post.get('image'):
             shot = next((s for s in media['screenshots'] if s['src'] == post['image']), None)
             preview = shot['preview'] if shot else post['image']
