@@ -95,6 +95,9 @@ class AuthoringTests(unittest.TestCase):
   self.assertIn('"datePublished": "2026-11-03"',out)
   self.assertIn('Looking back at work recorded on 26 October 2026',out)
  def test_same_day_updates_follow_creation_time_across_timezones(self):
+  # Keep both fixtures on the homepage regardless of future published posts.
+  for post in (self.root/'content/posts').glob('*.md'):
+   post.unlink()
   self.post('---\ntitle: Earlier\ndate: 2026-11-04\ncreated_at: 2026-11-04T10:00:00-06:00\nsummary: Work\n---\nEarlier update')
   (self.root/'content/posts/2026-11-04-a-later-update.md').write_text('---\ntitle: Later\ndate: 2026-11-04\ncreated_at: 2026-11-04T17:00:00+00:00\nsummary: Work\n---\nLater update')
   self.assertEqual([p['title'] for p in build.read_posts() if p['date']=='2026-11-04'],['Later','Earlier'])

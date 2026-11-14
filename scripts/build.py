@@ -178,7 +178,7 @@ def outputs():
         if article:
             data = {'@context': 'https://schema.org', '@type': 'BlogPosting', 'headline': article['title'], 'description': article['summary'], 'datePublished': article['written'], 'dateModified': article['written'], 'mainEntityOfPage': ORIGIN + path, 'image': ORIGIN + '/assets/media/01-mistral-overlook.webp'}
             schema = '<script type="application/ld+json">' + json.dumps(data).replace('<', '\\u003c') + '</script>'
-        rendered[path.lstrip('/') + 'index.html'] = template('base.html', title=escape(title), description=escape(description), canonical=ORIGIN + path, og_type='article' if article else 'website', home_current='aria-current="page"' if path == '/' else '', blog_current='aria-current="page"' if path.startswith('/blog/') else '', content=content, structured_data=schema)
+        rendered[path.lstrip('/') + 'index.html'] = template('base.html', title=escape(title), description=escape(description), canonical=ORIGIN + path, og_type='article' if article else 'website', home_current='aria-current="page"' if path == '/' else '', blog_current='aria-current="page"' if path.startswith('/blog/') else '', community_current='aria-current="page"' if path == '/community/' else '', content=content, structured_data=schema)
         pages.append(path)
 
     playthrough = media.get('playthrough')
@@ -187,6 +187,8 @@ def outputs():
         playthrough_html = video_html({'trailer': playthrough}) if playthrough.get('src') else youtube_html(playthrough['id'], playthrough['title'], playthrough['caption'])
     homepage = template('home.html', trailer=video_html(media), playthrough=playthrough_html, gallery=gallery_html(media), screenshot_count=len(media['screenshots']), latest_posts='\n'.join(excerpt(p) for p in posts[:3]))
     page('/', 'Shadow of Israphel — A Minecraft fan adventure', 'An independent, unofficial Shadow of Israphel fan recreation. Watch real gameplay, explore screenshots, and follow this solo Minecraft passion project.', homepage)
+    feedback_url = (playthrough or {}).get('youtube', 'https://www.youtube.com/@ShadowofIsraphelFanProject')
+    page('/community/', 'Community suggestions — Shadow of Israphel', 'Community feedback, contributor credits, and the changes being made to the private Shadow of Israphel fan adventure.', template('community.html', feedback_url=escape(feedback_url)))
 
     months = Counter(p['month'] for p in posts)
     month_list = '<ul class="month-list">' + ''.join(f'<li><a href="/blog/archive/#{m}">{date.fromisoformat(m + "-01"):%B %Y}</a> <span>({n})</span></li>' for m, n in months.items()) + '</ul>'

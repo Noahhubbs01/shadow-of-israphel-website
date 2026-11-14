@@ -81,4 +81,6 @@ GitHub Pages publishes automatically. Wait for the new post to return 200 with t
 
 ## Discovery in other sessions
 
+The `/community/` page records reviewed suggestions and contributor credits. Edit `templates/community.html` when adding or changing an entry, link to the relevant development post, and state whether the work is planned, under way, or implemented in the private build. Preserve existing credits. This is a manually maintained page; feedback is collected through the linked YouTube video.
+
 This repository's `AGENTS.md` points here. A portable skill is in `agent-skills/soi-announcements/`; a copy is installed in the owner's local Codex skill directory. A new session can invoke `$soi-announcements`. An already-running work mode can read this guide directly without waiting for skill discovery. There is no background watcher or schedule; the work mode completing the update carries out this handoff.
